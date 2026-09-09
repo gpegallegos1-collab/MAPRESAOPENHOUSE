@@ -3,13 +3,13 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>MAPRESA Open House</title>
+<title>MAPRESA | Open House</title>
 <style>
 *{box-sizing:border-box}
 html,body{margin:0;padding:0;background:#050505;color:#fff;font-family:Arial,Helvetica,sans-serif}
 body{overflow-x:hidden}
 #cover{
- position:fixed;inset:0;z-index:10;display:flex;align-items:center;justify-content:center;
+ position:fixed;inset:0;z-index:20;display:flex;align-items:center;justify-content:center;
  background:#050505;transition:opacity .45s ease,visibility .45s ease;
 }
 #cover.hide{opacity:0;visibility:hidden;pointer-events:none}
@@ -18,38 +18,33 @@ body{overflow-x:hidden}
 h1{font-size:clamp(44px,8vw,82px);line-height:.95;margin:0 0 34px;font-weight:900;letter-spacing:3px}
 .open-btn{
  border:0;border-radius:11px;padding:18px 30px;min-width:min(82vw,350px);
- background:#ff7e18;color:#111;font-size:20px;font-weight:900;letter-spacing:.6px;cursor:pointer;
+ background:#ff7e18;color:#111;font-size:20px;font-weight:900;cursor:pointer
 }
-#invite{display:none;min-height:100vh;padding-bottom:35px}
+#invite{display:none;min-height:100vh;padding-bottom:28px}
 #invite.show{display:block}
-.invite-image{
- display:block;width:100%;height:auto;margin:0 auto;
-}
-.actions{width:min(92vw,600px);margin:18px auto 0}
+.mobile-invite{display:block;width:100%;height:auto;margin:0 auto}
+.actions{width:calc(100% - 28px);max-width:620px;margin:18px auto 0}
 .confirm{
- display:flex;align-items:center;justify-content:center;text-decoration:none;
- min-height:62px;border-radius:12px;background:#ff7e18;color:#111;
+ display:flex;align-items:center;justify-content:center;min-height:62px;
+ border-radius:12px;background:#ff7e18;color:#111;text-decoration:none;
  font-size:18px;font-weight:900;letter-spacing:.5px;
- box-shadow:0 8px 25px rgba(255,126,24,.2);
+ box-shadow:0 8px 25px rgba(255,126,24,.2)
 }
 @media(min-width:700px){
  #invite{padding:24px 0 40px}
- .invite-image{width:min(100%,1200px);border-radius:8px}
+ .mobile-invite{width:min(100%,900px);border-radius:8px}
 }
 @media(max-width:699px){
- .cover-inner{width:88vw}
- .logo{width:min(62vw,280px);margin-bottom:26px}
- h1{font-size:48px;margin-bottom:30px}
- .open-btn{font-size:18px;padding:17px 20px}
- #invite{padding-bottom:25px}
- .invite-image{width:100vw;max-width:none}
- .actions{width:calc(100vw - 28px);margin:15px auto 0}
+ .logo{width:min(62vw,280px)}
+ h1{font-size:48px}
+ .open-btn{font-size:18px}
+ .mobile-invite{width:100vw}
+ .actions{margin-top:14px}
  .confirm{min-height:58px;font-size:16px}
 }
 </style>
 </head>
 <body>
-
 <section id="cover">
  <div class="cover-inner">
   <img class="logo" src="logo-mapresa.png" alt="MAPRESA">
@@ -59,11 +54,11 @@ h1{font-size:clamp(44px,8vw,82px);line-height:.95;margin:0 0 34px;font-weight:90
 </section>
 
 <main id="invite">
- <img class="invite-image" src="invitacion-mapresa.png" alt="Invitación Open House MAPRESA">
+ <img class="mobile-invite" src="invitacion-mobile.png" alt="Invitación MAPRESA Open House">
  <div class="actions">
-  <a class="confirm" href="https://wa.me/526565511692?text=Confirmo%20mi%20asistencia%20al%20Open%20House%20de%20MAPRESA%20el%2016%20de%20octubre%20de%202026." target="_blank" rel="noopener">
-   CONFIRMAR ASISTENCIA
-  </a>
+  <a class="confirm"
+     href="https://wa.me/526565511692?text=Confirmo%20mi%20asistencia%20al%20Open%20House%20de%20MAPRESA%20el%2016%20de%20octubre%20de%202026."
+     target="_blank" rel="noopener">CONFIRMAR ASISTENCIA</a>
  </div>
 </main>
 
