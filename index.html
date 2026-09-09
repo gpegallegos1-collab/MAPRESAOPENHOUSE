@@ -1,127 +1,77 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title>MAPRESA | Open House</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>MAPRESA Open House</title>
 <style>
 *{box-sizing:border-box}
-html,body{margin:0;width:100%;min-height:100%;font-family:Arial,Helvetica,sans-serif;background:#050505;color:#fff}
+html,body{margin:0;padding:0;background:#050505;color:#fff;font-family:Arial,Helvetica,sans-serif}
 body{overflow-x:hidden}
-.screen{min-height:100vh;width:100%;display:flex;align-items:center;justify-content:center}
 #cover{
-  position:fixed;inset:0;z-index:20;overflow:hidden;
-  background:
-    radial-gradient(circle at 50% 35%,rgba(255,126,24,.10),transparent 32%),
-    #050505;
-  transition:opacity .55s ease,visibility .55s ease;
+ position:fixed;inset:0;z-index:10;display:flex;align-items:center;justify-content:center;
+ background:#050505;transition:opacity .45s ease,visibility .45s ease;
 }
 #cover.hide{opacity:0;visibility:hidden;pointer-events:none}
-.cover-inner{width:min(90vw,720px);text-align:center;display:flex;flex-direction:column;align-items:center}
-.logo{
-  width:min(48vw,300px);height:auto;display:block;
-  margin-bottom:38px;
-  filter:drop-shadow(0 0 22px rgba(255,126,24,.20));
-}
-.open-title{
-  margin:0 0 38px;
-  font-size:clamp(44px,8vw,82px);
-  line-height:.95;font-weight:900;letter-spacing:4px;
-  color:#fff;
-}
+.cover-inner{text-align:center;width:90vw;max-width:700px}
+.logo{display:block;width:min(58vw,310px);max-height:240px;object-fit:contain;margin:0 auto 30px}
+h1{font-size:clamp(44px,8vw,82px);line-height:.95;margin:0 0 34px;font-weight:900;letter-spacing:3px}
 .open-btn{
-  appearance:none;border:0;cursor:pointer;
-  min-width:min(78vw,340px);
-  padding:18px 28px;
-  border-radius:10px;
-  background:#ff7e18;color:#111;
-  font-size:clamp(17px,3vw,22px);
-  font-weight:900;letter-spacing:1px;
-  box-shadow:0 0 0 1px rgba(255,126,24,.4),0 12px 35px rgba(255,126,24,.18);
+ border:0;border-radius:11px;padding:18px 30px;min-width:min(82vw,350px);
+ background:#ff7e18;color:#111;font-size:20px;font-weight:900;letter-spacing:.6px;cursor:pointer;
 }
-.open-btn:active{transform:scale(.98)}
-
-#invite{
-  display:none;
-  width:100%;
-  min-height:100vh;
-  background:#050505;
-  padding:0 0 34px;
-}
+#invite{display:none;min-height:100vh;padding-bottom:35px}
 #invite.show{display:block}
-.invitation{
-  width:min(100vw,1200px);
-  margin:0 auto;
+.invite-image{
+ display:block;width:100%;height:auto;margin:0 auto;
 }
-.invitation img{
-  display:block;
-  width:100%;
-  height:auto;
-  max-width:100%;
-  object-fit:contain;
+.actions{width:min(92vw,600px);margin:18px auto 0}
+.confirm{
+ display:flex;align-items:center;justify-content:center;text-decoration:none;
+ min-height:62px;border-radius:12px;background:#ff7e18;color:#111;
+ font-size:18px;font-weight:900;letter-spacing:.5px;
+ box-shadow:0 8px 25px rgba(255,126,24,.2);
 }
-.actions{
-  width:min(92vw,620px);
-  margin:22px auto 0;
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:14px;
+@media(min-width:700px){
+ #invite{padding:24px 0 40px}
+ .invite-image{width:min(100%,1200px);border-radius:8px}
 }
-.action{
-  display:flex;align-items:center;justify-content:center;
-  min-height:58px;padding:14px 12px;
-  border-radius:11px;text-decoration:none;
-  font-size:15px;font-weight:900;letter-spacing:.5px;
-  text-align:center;
-}
-.confirm{background:#ff7e18;color:#111;box-shadow:0 8px 24px rgba(255,126,24,.20)}
-.maps{background:#151515;color:#fff;border:1px solid #ff7e18}
-.action:active{transform:scale(.98)}
-
-@media(max-width:600px){
-  .cover-inner{width:88vw}
-  .logo{width:min(55vw,270px);margin-bottom:30px}
-  .open-title{font-size:46px;letter-spacing:2px;margin-bottom:32px}
-  .open-btn{width:82vw;padding:17px 18px}
-  #invite{padding-bottom:24px}
-  .invitation{width:100vw}
-  .invitation img{width:100vw;height:auto}
-  .actions{width:calc(100vw - 24px);margin-top:14px;gap:10px}
-  .action{min-height:56px;font-size:13px;padding:12px 8px}
-}
-@media(min-width:601px){
-  #invite{padding-top:24px}
-  .invitation{border-radius:10px;overflow:hidden;box-shadow:0 12px 45px rgba(0,0,0,.45)}
+@media(max-width:699px){
+ .cover-inner{width:88vw}
+ .logo{width:min(62vw,280px);margin-bottom:26px}
+ h1{font-size:48px;margin-bottom:30px}
+ .open-btn{font-size:18px;padding:17px 20px}
+ #invite{padding-bottom:25px}
+ .invite-image{width:100vw;max-width:none}
+ .actions{width:calc(100vw - 28px);margin:15px auto 0}
+ .confirm{min-height:58px;font-size:16px}
 }
 </style>
 </head>
 <body>
 
-<section id="cover" class="screen">
-  <div class="cover-inner">
-    <img class="logo" src="logo-mapresa.png" alt="MAPRESA">
-    <h1 class="open-title">OPEN HOUSE</h1>
-    <button class="open-btn" id="openBtn">ABRIR INVITACIÓN</button>
-  </div>
+<section id="cover">
+ <div class="cover-inner">
+  <img class="logo" src="logo-mapresa.png" alt="MAPRESA">
+  <h1>OPEN HOUSE</h1>
+  <button class="open-btn" id="open">ABRIR INVITACIÓN</button>
+ </div>
 </section>
 
 <main id="invite">
-  <div class="invitation">
-    <img src="invitacion-mapresa.png" alt="Invitación MAPRESA Open House">
-  </div>
-
-  <div class="actions">
-    <a class="action confirm"
-       href="https://wa.me/526565511692?text=Confirmo%20mi%20asistencia%20al%20Open%20House%20de%20MAPRESA%20el%2016%20de%20octubre%20de%202026."
-       target="_blank" rel="noopener">CONFIRMAR ASISTENCIA</a>
-  </div>
+ <img class="invite-image" src="invitacion-mapresa.png" alt="Invitación Open House MAPRESA">
+ <div class="actions">
+  <a class="confirm" href="https://wa.me/526565511692?text=Confirmo%20mi%20asistencia%20al%20Open%20House%20de%20MAPRESA%20el%2016%20de%20octubre%20de%202026." target="_blank" rel="noopener">
+   CONFIRMAR ASISTENCIA
+  </a>
+ </div>
 </main>
 
 <script>
-document.getElementById('openBtn').addEventListener('click',function(){
-  document.getElementById('invite').classList.add('show');
-  document.getElementById('cover').classList.add('hide');
-  window.scrollTo(0,0);
+document.getElementById('open').addEventListener('click',()=>{
+ document.getElementById('cover').classList.add('hide');
+ document.getElementById('invite').classList.add('show');
+ window.scrollTo(0,0);
 });
 </script>
 </body>
