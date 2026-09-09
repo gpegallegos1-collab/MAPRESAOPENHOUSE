@@ -3,73 +3,45 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#0a0a0a">
+<meta name="theme-color" content="#080808">
 <title>MAPRESA | Open House</title>
 <style>
-*{box-sizing:border-box}html,body{margin:0;min-height:100%;font-family:Arial,Helvetica,sans-serif;background:#080808;color:#fff}
-body{overflow:hidden}.screen{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;transition:opacity .7s,visibility .7s}
-#cover{z-index:10;background:radial-gradient(circle at 50% 45%,rgba(255,106,0,.23),transparent 30%),linear-gradient(135deg,#070707,#1a1a1a 55%,#090909)}
-#cover.hidden{opacity:0;visibility:hidden;pointer-events:none}.cover-inner{text-align:center;width:min(700px,90%);animation:rise 1s ease both;position:relative;z-index:2}
-.logo{font-size:clamp(52px,12vw,125px);font-weight:900;letter-spacing:.06em}.orange{color:#ff6a00}.line{height:5px;width:90px;background:#ff6a00;margin:18px auto 25px;border-radius:10px}
-.kicker{font-size:clamp(14px,2vw,20px);letter-spacing:.35em;color:#ddd;margin-bottom:12px}.title{font-size:clamp(24px,5vw,52px);font-weight:900;margin:0 0 8px}.date{font-size:clamp(18px,3vw,30px);color:#ff6a00;font-weight:800;margin-bottom:32px}
-.open,.continue,.rsvp{border:0;background:#ff6a00;color:#fff;font-weight:900;cursor:pointer;box-shadow:0 10px 30px #0008;transition:.2s}.open{font-size:17px;padding:18px 38px;border-radius:999px;animation:pulse 2s infinite}.open:hover,.continue:hover,.rsvp:hover{transform:scale(1.04)}
-.gear{position:absolute;border:1px solid rgba(255,106,0,.2);border-radius:50%;animation:spin 18s linear infinite}.g1{width:330px;height:330px}.g2{width:520px;height:520px;animation-direction:reverse;animation-duration:28s}
-#inviteScreen{z-index:2;opacity:0;visibility:hidden;overflow-y:auto;overflow-x:hidden;display:block;padding:55px 16px 45px;background:#080808}
-#inviteScreen.show{opacity:1;visibility:visible}.wrap{width:min(900px,100%);margin:0 auto}.card{background:#111;border-radius:18px;overflow:hidden;box-shadow:0 20px 60px #0009;animation:cardIn .9s cubic-bezier(.2,.8,.2,1) both}.card img{display:block;width:100%;height:auto}
-.actions{padding:24px 18px 28px;text-align:center;background:linear-gradient(#151515,#0d0d0d)}.actions h2{margin:0 0 8px;font-size:24px}.actions p{margin:0 0 20px;color:#ccc;font-size:15px}.continue{display:inline-block;text-decoration:none;padding:16px 35px;border-radius:999px;font-size:17px;margin-bottom:12px}.rsvp{display:block;text-decoration:none;padding:17px 20px;border-radius:14px;font-size:17px;background:#ff6a00;margin:0 auto;width:min(440px,100%);text-align:center;animation:pulse 2.4s infinite}.location{display:block;margin:12px auto 0;padding:15px 20px;border:2px solid #ff6a00;color:#fff;text-decoration:none;border-radius:14px;font-weight:900;width:min(440px,100%)}
-.back{position:fixed;left:15px;top:15px;z-index:20;background:#111e;color:#fff;border:1px solid #ffffff33;padding:11px 15px;border-radius:12px;cursor:pointer;backdrop-filter:blur(8px)}
-.nextHint{font-size:12px;color:#aaa;margin-top:7px}.section2{margin-top:25px;padding-bottom:20px}.section2 .label{font-size:12px;letter-spacing:.18em;color:#ff6a00;font-weight:900;margin-bottom:8px}.section2 h3{font-size:28px;margin:0 0 8px}.section2 p{color:#bbb;margin:0 0 18px}
-@keyframes rise{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:none}}@keyframes cardIn{from{opacity:0;transform:translateY(35px) scale(.97)}to{opacity:1;transform:none}}@keyframes pulse{0%,100%{box-shadow:0 10px 30px #0008,0 0 0 0 rgba(255,106,0,.5)}50%{box-shadow:0 10px 30px #0008,0 0 0 12px rgba(255,106,0,0)}}@keyframes spin{to{transform:rotate(360deg)}}
-@media(max-width:600px){
-#inviteScreen{padding:58px 0 30px}.wrap{width:100%}.card{border-radius:0;box-shadow:none}.actions{padding:25px 18px 30px}.actions h2{font-size:23px}.actions p{font-size:15px;line-height:1.4}.continue,.rsvp,.location{font-size:17px;padding:17px 15px}.back{font-size:12px;top:10px;left:10px}.section2{padding:0 18px 25px}.section2 h3{font-size:25px}
-}
+*{box-sizing:border-box}html,body{margin:0;width:100%;height:100%;background:#080808;font-family:Arial,Helvetica,sans-serif;color:#fff;overflow:hidden}
+.screen{position:fixed;inset:0}
+#cover{display:flex;align-items:center;justify-content:center;text-align:center;overflow:hidden;background:radial-gradient(circle at 50% 42%,rgba(255,106,0,.24),transparent 28%),linear-gradient(135deg,#050505,#1b1b1b 55%,#070707)}
+.cover-inner{width:min(700px,90vw);position:relative;z-index:2;animation:rise 1s ease both}
+.logo-img{width:min(330px,68vw);height:auto;display:block;margin:0 auto 38px;filter:drop-shadow(0 10px 24px rgba(0,0,0,.55))}
+.open-house{font-size:clamp(42px,9vw,82px);font-weight:900;letter-spacing:.06em;margin:0 0 34px;text-shadow:0 6px 24px #000}
+.open{border:0;background:#ff6a00;color:#fff;font-weight:900;font-size:clamp(17px,3vw,22px);padding:20px 42px;border-radius:999px;cursor:pointer;box-shadow:0 10px 35px #000,0 0 0 0 rgba(255,106,0,.55);animation:pulse 2s infinite}
+.gear{position:absolute;border:1px solid rgba(255,106,0,.18);border-radius:50%;left:50%;top:50%;transform:translate(-50%,-50%);animation:spin 18s linear infinite}.g1{width:380px;height:380px}.g2{width:620px;height:620px;animation-direction:reverse;animation-duration:28s}
+#invite{opacity:0;visibility:hidden;display:flex;align-items:center;justify-content:center;background:#000;transition:opacity .65s,visibility .65s}
+#invite.show{opacity:1;visibility:visible}
+#invite img{display:block;width:auto;height:auto;max-width:100vw;max-height:100vh;object-fit:contain}
+@media(max-width:600px){#invite{overflow:hidden;align-items:center;justify-content:center}#invite img{width:auto;height:100vh;max-width:100vw;max-height:100vh;min-height:0;object-fit:contain}.logo-img{margin-bottom:30px}.open-house{margin-bottom:28px}}
+@keyframes rise{from{opacity:0;transform:translateY(25px)}to{opacity:1;transform:none}}
+@keyframes pulse{0%,100%{box-shadow:0 10px 35px #000,0 0 0 0 rgba(255,106,0,.5)}50%{box-shadow:0 10px 35px #000,0 0 0 13px rgba(255,106,0,0)}}
+@keyframes spin{to{transform:translate(-50%,-50%) rotate(360deg)}}
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important}}
 </style>
 </head>
 <body>
-<div id="cover" class="screen">
- <div class="gear g1"></div><div class="gear g2"></div>
- <div class="cover-inner">
-  <div class="logo">MAPRESA</div><div class="line"></div><div class="kicker">OPEN HOUSE</div>
-  <div class="title">Tecnología · Maquinaria · Industria</div><div class="date">16 DE OCTUBRE · 1:00 PM</div>
-  <button class="open" onclick="openInvite()">ABRIR INVITACIÓN</button>
- </div>
-</div>
-
-<div id="inviteScreen">
- <button class="back" onclick="backCover()">← Regresar</button>
- <div class="wrap">
-  <div class="card">
-   <img src="invitacion-mapresa.png" alt="Invitación MAPRESA Open House">
-   <div class="actions">
-    <h2>¡Gracias por acompañarnos!</h2>
-    <p>La invitación está arriba. Para continuar, solo toca el botón.</p>
-    <a class="continue" href="#acciones" onclick="goActions(event)">CONTINUAR →</a>
-    <div class="nextHint">No necesitas deslizar ni buscar nada.</div>
-   </div>
+<section id="cover" class="screen">
+  <div class="gear g1"></div><div class="gear g2"></div>
+  <div class="cover-inner">
+    <img class="logo-img" src="logo-mapresa.png" alt="MAPRESA">
+    <h1 class="open-house">OPEN HOUSE</h1>
+    <button class="open" onclick="openInvite()">ABRIR INVITACIÓN</button>
   </div>
-
-  <div id="acciones" class="section2">
-   <div class="label">SIGUIENTE PASO</div>
-   <h3>Confirma tu asistencia</h3>
-   <p>Solo toca el botón naranja y se abrirá WhatsApp con el mensaje listo.</p>
-   <a class="rsvp" href="https://wa.me/526565511692?text=Confirmo%20mi%20asistencia%20al%20Open%20House%20de%20MAPRESA%20el%2016%20de%20octubre%20de%202026." target="_blank" rel="noopener">✓ CONFIRMAR ASISTENCIA</a>
-   <a class="location" href="https://www.google.com/maps/search/?api=1&query=MAPRESA%20Ciudad%20Juarez" target="_blank" rel="noopener">📍 VER UBICACIÓN</a>
-  </div>
- </div>
-</div>
-
+</section>
+<section id="invite" class="screen" aria-label="Invitación MAPRESA Open House">
+  <img src="invitacion-mapresa.png" alt="Invitación MAPRESA Open House">
+</section>
 <script>
-function playSawSound(){
- const AC=window.AudioContext||window.webkitAudioContext;if(!AC)return;const ctx=new AC(),now=ctx.currentTime;
- const master=ctx.createGain();master.gain.setValueAtTime(.0001,now);master.gain.exponentialRampToValueAtTime(.20,now+.03);master.gain.exponentialRampToValueAtTime(.0001,now+1.65);master.connect(ctx.destination);
- const motor=ctx.createOscillator(),mg=ctx.createGain();motor.type='sawtooth';motor.frequency.setValueAtTime(75,now);motor.frequency.exponentialRampToValueAtTime(145,now+.65);motor.frequency.exponentialRampToValueAtTime(95,now+1.5);mg.gain.value=.32;motor.connect(mg).connect(master);motor.start(now);motor.stop(now+1.7);
- const buzz=ctx.createOscillator(),bg=ctx.createGain();buzz.type='sawtooth';buzz.frequency.setValueAtTime(430,now+.35);buzz.frequency.exponentialRampToValueAtTime(920,now+1.15);buzz.frequency.exponentialRampToValueAtTime(520,now+1.55);bg.gain.setValueAtTime(.0001,now);bg.gain.exponentialRampToValueAtTime(.42,now+.35);bg.gain.exponentialRampToValueAtTime(.0001,now+1.55);buzz.connect(bg).connect(master);buzz.start(now);buzz.stop(now+1.6);
- const hit=ctx.createOscillator(),hg=ctx.createGain();hit.type='triangle';hit.frequency.setValueAtTime(1800,now+1.25);hit.frequency.exponentialRampToValueAtTime(500,now+1.55);hg.gain.setValueAtTime(.0001,now);hg.gain.exponentialRampToValueAtTime(.18,now+1.25);hg.gain.exponentialRampToValueAtTime(.0001,now+1.58);hit.connect(hg).connect(master);hit.start(now);hit.stop(now+1.6);setTimeout(()=>ctx.close(),1900);
+function openInvite(){
+  document.getElementById('cover').style.display='none';
+  document.getElementById('invite').classList.add('show');
+  document.body.style.overflow='hidden';
 }
-function openInvite(){playSawSound();document.getElementById('cover').classList.add('hidden');document.getElementById('inviteScreen').classList.add('show');document.body.style.overflow='auto';window.scrollTo(0,0)}
-function backCover(){document.getElementById('inviteScreen').classList.remove('show');document.getElementById('cover').classList.remove('hidden');document.body.style.overflow='hidden'}
-function goActions(e){e.preventDefault();document.getElementById('acciones').scrollIntoView({behavior:'smooth',block:'start'})}
 </script>
 </body>
 </html>
